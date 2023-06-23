@@ -1,0 +1,33 @@
+version: 0.1
+cli:
+  version: 1.11.1
+plugins:
+  sources:
+    - id: trunk
+      ref: v0.0.20
+      uri: https://github.com/trunk-io/plugins
+lint:
+  enabled:
+    - git-diff-check
+    - markdownlint@0.35.0
+    - prettier@2.8.8
+    - trufflehog@3.40.0
+runtimes:
+  enabled:
+    - node@18.12.1
+    - python@3.10.8
+merge:
+  required_statuses:
+    # Currently, buildkite/trunk-merge-smoke-test is taking a long time
+    # to run / report status to GH, which is causing smoke tests to fail
+    # since MG won't merge a PR until that check finishes.
+    # Reference - https://trunk-io.slack.com/archives/C0272DLKGLF/p1682604350559439?thread_ts=1682549002.219079&cid=C0272DLKGLF
+    # buildkite/trunk-merge-smoke-test
+    - Run Pull Request checks
+actions:
+  disabled:
+    - trunk-announce
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+  enabled:
+    - trunk-upgrade-available
