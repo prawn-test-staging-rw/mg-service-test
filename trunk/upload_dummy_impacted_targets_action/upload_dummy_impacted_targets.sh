@@ -48,13 +48,12 @@ POST_BODY="./post_body_tmp"
 jq --null-input \
   --argjson repo "${REPO_BODY}" \
   --argjson pr "${PR_BODY}" \
-  --arg impactedTargets "${DUMMY_TARGETS}" \
+  --argjson impactedTargets "${DUMMY_TARGETS}" \
   --arg targetBranch "${TARGET_BRANCH}" \
   '{ "repo": $repo, "pr": $pr, "targetBranch": $targetBranch, "impactedTargets": $impactedTargets }' \
   >"${POST_BODY}"
 
 cat "${POST_BODY}"
-cat "${API_URL}"
 
 HTTP_STATUS_CODE=$(
   curl -s -o /dev/null -w '%{http_code}' -X POST \
