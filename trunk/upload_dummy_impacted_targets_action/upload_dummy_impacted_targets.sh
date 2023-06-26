@@ -50,7 +50,7 @@ jq --null-input \
   --argjson pr "${PR_BODY}" \
   --arg impactedTargets "${DUMMY_TARGETS}" \
   --arg targetBranch "${TARGET_BRANCH}" \
-  '{ "repo": $repo, "pr": $pr, "targetBranch": $targetBranch, "impactedTargets": $impactedTargets | .[0] | map(select(length > 0)) }' \
+  '{ "repo": $repo, "pr": $pr, "targetBranch": $targetBranch, "impactedTargets": $impactedTargets }' \
   >"${POST_BODY}"
 
 HTTP_STATUS_CODE=$(
