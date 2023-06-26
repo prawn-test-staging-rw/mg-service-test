@@ -1,5 +1,5 @@
 name: Upload Dummy Impacted Targets
-run-name: Upload Dummy Impacted Targets for ${{ github.ref_name }}
+run-name: Upload A Fixed, Non-changing List of Impacted Targets for ${{ github.ref_name }}
 on: pull_request
 
 jobs:
