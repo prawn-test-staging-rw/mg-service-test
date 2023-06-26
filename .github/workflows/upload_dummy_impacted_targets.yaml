@@ -3,8 +3,8 @@ run-name: Upload Dummy Impacted Targets for ${{ github.ref_name }}
 on: pull_request
 
 jobs:
-  compute_impacted_targets:
-    name: Compute Impacted Targets
+  upload_dummy_impacted_targets:
+    name: Upload Dummy Impacted Targets
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

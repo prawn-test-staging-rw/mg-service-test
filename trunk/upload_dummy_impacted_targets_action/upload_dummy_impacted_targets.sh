@@ -48,7 +48,7 @@ POST_BODY="./post_body_tmp"
 jq --null-input \
   --argjson repo "${REPO_BODY}" \
   --argjson pr "${PR_BODY}" \
-  --argjson impactedTargets "${DUMMY_TARGETS}" \
+  --arg impactedTargets "${DUMMY_TARGETS}" \
   --arg targetBranch "${TARGET_BRANCH}" \
   '{ "repo": $repo, "pr": $pr, "targetBranch": $targetBranch, "impactedTargets": $impactedTargets | .[0] | map(select(length > 0)) }' \
   >"${POST_BODY}"
