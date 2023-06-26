@@ -33,5 +33,5 @@ runs:
         API_TOKEN: ${{ inputs.trunk-token }}
         REPOSITORY: ${{ github.repository }}
         TARGET_BRANCH: ${{ steps.prerequisites.outputs.merge_instance_branch }}
-        PR_NUMBER: ${{ github.event.pull_request.number }}
+        PR_NUMBER: ${{ github.event.pull_request.head.sha }}
         PR_SHA: ${{ github.sha }}
