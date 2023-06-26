@@ -53,8 +53,8 @@ jq --null-input \
   '{ "repo": $repo, "pr": $pr, "targetBranch": $targetBranch, "impactedTargets": $impactedTargets }' \
   >"${POST_BODY}"
 
-cat $POST_BODY
-cat $API_URL
+cat "${POST_BODY}"
+cat "${API_URL}"
 
 HTTP_STATUS_CODE=$(
   curl -s -o /dev/null -w '%{http_code}' -X POST \
