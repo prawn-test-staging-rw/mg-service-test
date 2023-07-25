@@ -1,4 +1,7 @@
 filegroup(
     name = "lib",
-    srcs = glob(["**/test_lib/*.txt"]),
+    srcs = glob([
+        "**/*.txt",
+        "*.txt",
+    ]),
 )
