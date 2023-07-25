@@ -6,3 +6,6 @@ plugins
 user_trunk.yaml
 user.yaml
 shims
+/bazel-*
+/external
+/user.bazelrc
