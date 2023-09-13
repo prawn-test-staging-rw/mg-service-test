@@ -2,12 +2,12 @@ name: Upload Impacted Targets
 run-name: Upload Impacted Targets for ${{ github.ref_name }}
 on:
   pull_request:
-    branches-ignore:
-      - impacted_targets_test/**
+    branches:
+      - impacted_targets_test/1/**
 
 jobs:
   compute_impacted_targets:
-    name: Compute Impacted Targets
+    name: Compute Impacted Targets (non VERBOSE)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,6 +21,5 @@ jobs:
         with:
           trunk-token: ${{ secrets.TRUNK_REPO_API_TOKEN }}
           bazel-workspace-path: test_workspace
-          verbose: 1
         env:
           API_URL: https://api.trunk-staging.io:443/v1/setImpactedTargets
