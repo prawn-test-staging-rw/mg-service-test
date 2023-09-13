@@ -1,9 +1,9 @@
-name: Upload Impacted Targets
+name: Upload Impacted Targets - bazel startup options
 run-name: Upload Impacted Targets for ${{ github.ref_name }}
 on:
   pull_request:
     branches:
-      - impacted_targets_test/bazel_startup_options/**
+      - impacted_targets_test/bazel_startup_options/*
 
 jobs:
   compute_impacted_targets:
@@ -15,7 +15,7 @@ jobs:
         with:
           lfs: true
 
-      - name: Compute Impacted Targets
+      - name: Compute Impacted Targets (with startup options)
         # trunk-ignore(semgrep/yaml.github-actions.security.third-party-action-not-pinned-to-commit-sha.third-party-action-not-pinned-to-commit-sha)
         uses: trunk-io/merge-action@main
         with:
