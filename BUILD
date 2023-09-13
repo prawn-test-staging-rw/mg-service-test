@@ -1,1 +1,1 @@
-filegroup()
+filegroup(name = "files")
