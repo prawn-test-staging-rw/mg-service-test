@@ -1,14 +1,12 @@
 name: Upload Impacted Targets
 run-name: Upload Impacted Targets for ${{ github.ref_name }}
-on:
-  pull_request:
-    branches-ignore:
-      - impacted_targets_test/**
+on: pull_request
 
 jobs:
   compute_impacted_targets:
     name: Compute Impacted Targets
     runs-on: ubuntu-latest
+    if: ! startsWith(github.head_ref, 'impacted_targets_test/')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
