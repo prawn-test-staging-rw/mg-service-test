@@ -1,13 +1,11 @@
 name: Upload Impacted Targets - non verbose
 run-name: Upload Impacted Targets for ${{ github.ref_name }}
-on:
-  pull_request:
-    branches:
-      - impacted_targets_test/non_verbose/*
+on: pull_request
 
 jobs:
   compute_impacted_targets:
     name: Compute Impacted Targets (non VERBOSE)
+    if: startsWith(github.head_ref, 'impacted_targets_test/non_verbose/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
