@@ -5,7 +5,7 @@ on: pull_request
 jobs:
   compute_impacted_targets:
     name: Compute Impacted Targets (with startup options)
-    if: startsWith(github.head_ref, 'impacted_targets_test/bazel_startup_options')
+    if: startsWith(github.head_ref, 'impacted_targets_test/bazel_startup_options/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
