@@ -6,7 +6,7 @@ jobs:
   compute_impacted_targets:
     name: Compute Impacted Targets
     runs-on: ubuntu-latest
-    if: ! startsWith(github.head_ref, 'impacted_targets_test/')
+    if: ${{ ! startsWith(github.head_ref, 'impacted_targets_test/') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
