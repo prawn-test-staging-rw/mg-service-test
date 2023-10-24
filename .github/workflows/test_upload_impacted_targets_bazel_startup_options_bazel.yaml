@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   compute_impacted_targets:
-    name: Compute Impacted Targets (with startup options)
+    name: Compute Impacted Targets (with startup options) (bazel-action)
     if: startsWith(github.head_ref, 'impacted_targets_test/bazel_startup_options_bazel/')
     runs-on: ubuntu-latest
     steps:

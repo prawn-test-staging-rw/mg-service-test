@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   compute_impacted_targets:
-    name: Compute Impacted Targets (non VERBOSE)
+    name: Compute Impacted Targets (non VERBOSE) (bazel-action)
     if: startsWith(github.head_ref, 'impacted_targets_test/non_verbose_bazel/')
     runs-on: ubuntu-latest
     steps:
