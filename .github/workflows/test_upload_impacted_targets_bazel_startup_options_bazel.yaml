@@ -17,6 +17,8 @@ jobs:
         # trunk-ignore(semgrep/yaml.github-actions.security.third-party-action-not-pinned-to-commit-sha.third-party-action-not-pinned-to-commit-sha)
         uses: trunk-io/bazel-action@main
         with:
+          upload-targets: "true"
+          test-targets: "false"
           trunk-token: ${{ secrets.TRUNK_REPO_API_TOKEN }}
           bazel-workspace-path: test_workspace
           verbose: 1
