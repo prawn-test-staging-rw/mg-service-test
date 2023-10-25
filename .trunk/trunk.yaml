@@ -1,20 +1,20 @@
 version: 0.1
 cli:
-  version: 1.11.1
+  version: 1.17.1
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.20
+      ref: v1.2.6
       uri: https://github.com/trunk-io/plugins
     - id: configs
       uri: https://github.com/trunk-io/configs
-      ref: v0.0.3
+      ref: v0.0.8
 lint:
   enabled:
     - git-diff-check
-    - markdownlint@0.35.0
-    - prettier@2.8.8
-    - trufflehog@3.40.0
+    - markdownlint@0.37.0
+    - prettier@3.0.3
+    - trufflehog@3.60.0
 runtimes:
   enabled:
     - node@18.12.1

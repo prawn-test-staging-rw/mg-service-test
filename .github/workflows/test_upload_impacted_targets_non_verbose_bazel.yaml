@@ -1,0 +1,25 @@
+name: Upload Impacted Targets - non verbose (bazel-action)
+run-name: Upload Impacted Targets for ${{ github.ref_name }} (bazel-action)
+on: pull_request
+
+jobs:
+  compute_impacted_targets:
+    name: Compute Impacted Targets (non VERBOSE) (bazel-action)
+    if: startsWith(github.head_ref, 'impacted_targets_test/non_verbose_bazel/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - name: Compute Impacted Targets (non VERBOSE) (bazel-action)
+        # trunk-ignore(semgrep/yaml.github-actions.security.third-party-action-not-pinned-to-commit-sha.third-party-action-not-pinned-to-commit-sha)
+        uses: trunk-io/bazel-action@main
+        with:
+          upload-targets: "true"
+          test-targets: "false"
+          trunk-token: ${{ secrets.TRUNK_REPO_API_TOKEN }}
+          bazel-workspace-path: test_workspace
+        env:
+          API_URL: https://api.trunk-staging.io:443/v1/setImpactedTargets
