@@ -20,6 +20,6 @@ jobs:
           trunk-token: ${{ secrets.TRUNK_REPO_API_TOKEN }}
           bazel-workspace-path: test_workspace
           verbose: 1
-          bazel-startup-options: --host_jvm_args=-Xmx12G,--block_for_lock,--client_debug
+          bazel-startup-options: --host_jvm_args=-Xmx12G,--block_for_lock,--client_debug,--enable_workspace
         env:
           API_URL: https://api.trunk-staging.io:443/v1/setImpactedTargets
