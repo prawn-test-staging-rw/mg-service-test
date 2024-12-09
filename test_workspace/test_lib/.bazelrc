@@ -1,2 +1,0 @@
-build --enable_workspace
-test --enable_workspace
