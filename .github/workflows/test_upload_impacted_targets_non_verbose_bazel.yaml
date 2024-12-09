@@ -21,6 +21,5 @@ jobs:
           test-targets: "false"
           trunk-token: ${{ secrets.TRUNK_REPO_API_TOKEN }}
           bazel-workspace-path: test_workspace
-          bazel-startup-options: --enable_workspace
         env:
           API_URL: https://api.trunk-staging.io:443/v1/setImpactedTargets
